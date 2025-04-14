@@ -2,11 +2,13 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 app.use(cors());
 app.use(express.json());
+const dbUrl = process.env.ATLASDB_URL
 
-mongoose.connect('mongodb://127.0.0.1:27017/TodoList')
+
+mongoose.connect(dbUrl)
   .then(() => console.log('Connected!'));
 
 const TaskListSchema = new mongoose.Schema({
