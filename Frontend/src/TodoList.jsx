@@ -12,7 +12,7 @@ export default function TodoList() {
 
     async function fetchTasks() {
         try {
-            const res = await fetch("http://localhost:3000/tasks");
+            const res = await fetch("https://todolist-1-oxid.onrender.com/tasks");
             const data = await res.json();
             setTasks(data);
         } catch (err) {
@@ -26,7 +26,7 @@ export default function TodoList() {
         const newTask = { task, date, state: status };
 
         try {
-            const response = await fetch('http://localhost:3000/tasks', {
+            const response = await fetch('https://todolist-1-oxid.onrender.com/tasks', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
