@@ -26,17 +26,19 @@ const TaskListSchema = new mongoose.Schema({
 
 const TaskList = mongoose.model('TaskList', TaskListSchema);
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   console.log('listening');
 });
 
-// GET all tasks
+
 app.get('/tasks', async (req, res) => {
   let result = await TaskList.find();
   res.send(result);
 });
 
-// POST a new task
+
 app.post('/tasks', async (req, res) => {
   const { task, date, state } = req.body;
 
@@ -54,7 +56,7 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-// DELETE a task by ID
+
 app.delete('/tasks/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -68,7 +70,7 @@ app.delete('/tasks/:id', async (req, res) => {
   }
 });
 
-// PATCH (update) a task by ID
+
 app.patch('/tasks/:id', async (req, res) => {
   const { id } = req.params;
   const { task, date, state } = req.body;
