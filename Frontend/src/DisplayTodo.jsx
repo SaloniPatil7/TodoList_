@@ -8,7 +8,7 @@ export default function DisplayTodo({ tasks }) {
 
     async function deleteTask(id) {
         try {
-            const res = await fetch(`https://todolist-1-oxid.onrender.com/${id}`, {
+            const res = await fetch(`https://todolist-1-oxid.onrender.com/tasks/${id}`, {
                 method: "DELETE",
             });
 
@@ -28,7 +28,7 @@ export default function DisplayTodo({ tasks }) {
                 state: editedStatus
             };
 
-            const res = await fetch(`https://todolist-1-oxid.onrender.com/${id}`, {
+            const res = await fetch(`https://todolist-1-oxid.onrender.com/tasks/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
